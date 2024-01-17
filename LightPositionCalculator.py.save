@@ -1,0 +1,30 @@
+import math
+
+class Point:
+	def __init__(self, x, y):
+		self.x = x
+		self.y = y
+
+
+def calculate_track_length(a, b):
+	x_diff = b.x - a.x
+	y_diff = b.y - a.y
+	return math.sqrt((x_diff**2) + (y_diff**2))
+
+
+def calculate_track_angle(a, b):
+	x_diff = math.abs(b.x - a.x)
+	length = calculate_track_length(a, b)
+	return math.asin(x_diff/length)
+
+
+
+POINT_A = Point(0,0) # point at upper right of track
+POINT_B = Point(17, 17) # point at bottom left of track
+DISTANCE_BETWEEN_LIGHTS = (50/3) # center to center in millimeters
+
+POINT_A = Point(0,0) # point at upper right of track
+POINT_B = Point(17, 17) # point at bottom left of track
+DISTANCE_BETWEEN_LIGHTS = (50/3) # center to center in millimeters
+TRACK_LENGTH = calculate_track_length(POINT_A, POINT_B)
+TRACK_ANGLE = calculate_track_angle(POINT_A, POINT_B)
